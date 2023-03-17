@@ -1,4 +1,4 @@
-package pojo.CleaningSessions;
+package pojo.cleaningSessions;
 
 import lombok.Data;
 

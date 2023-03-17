@@ -109,7 +109,7 @@ Feature: Cleaning session API - Positive Scenarios
       | WWWWWWWWWWWWWWW |
       | EEEEEEEEEEEEEE  |
 
-  Scenario: When we send no patches API should return 200 error code
+  Scenario: When we send no patches API should return 200 code
     Given A room of dimension
       | x | y |
       | 1 | 1 |
@@ -139,6 +139,22 @@ Feature: Cleaning session API - Positive Scenarios
       | patches | 0       |
       | coords  | [ 1, 3] |
 
+  Scenario: The API should return 1 cleaned patch when initial position is the same as the patch
+    Given A room of dimension
+      | x | y |
+      | 1 | 1 |
+    And Set the initial position of the Hover to
+      | x | y |
+      | 0 | 0 |
+    And Set the dirt patches
+      | x | y |
+      | 0 | 0 |
+    And I set the instructions ""
+    When Send a POST request to "/cleaning-sessions"
+    Then Validate the response code is 200
+    Then Validate the response body
+      | patches | 1      |
+      | coords  | [0, 0] |
 
   Scenario: Example of Pending Test Case
     Given This is a pending step

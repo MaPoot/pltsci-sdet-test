@@ -7,14 +7,13 @@ import io.cucumber.java.en.Then;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
-import pojo.CleaningSessions.CleaningSessionErrorResponse;
-import pojo.CleaningSessions.CleaningSessionResponse;
-import pojo.CleaningSessions.CleaningSessions;
+import pojo.cleaningSessions.CleaningSessionErrorResponse;
+import pojo.cleaningSessions.CleaningSessionResponse;
+import pojo.cleaningSessions.CleaningSessions;
 import utils.APIOperations;
 
 import java.lang.reflect.Type;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class HoverTestSteps extends BaseSteps {
     private final CleaningSessions cleaningSession = new CleaningSessions();
@@ -98,8 +97,6 @@ public class HoverTestSteps extends BaseSteps {
     public void sendAPOSTRequestTo(String api) throws JsonProcessingException {
         String endpoint = variables.getProperty("api.hover.url") + api;
         String body = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(cleaningSession);
-
-        System.out.println(body);
         response = APIOperations.post(endpoint, body);
     }
 
