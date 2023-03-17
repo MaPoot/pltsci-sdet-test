@@ -43,7 +43,7 @@ Example:
 
 # Environment-specific configurations
 We can configure environment-specific properties and options, so that the tests can be run in different environments. Here, we configure three environments, __default__ and __test__, with different starting URLs for each:
-```json
+```
 environments {
   default{
     api.hover.url = "http://localhost:8083/v1"
