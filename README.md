@@ -1,4 +1,8 @@
-# Execution
+# Execute project from IntelliJ
+
+Click on Maven tab and select verify
+
+# Execution from Maven
 
 Execute test with default environment variables
 
@@ -159,7 +163,7 @@ To run the sample project, you can either just run the `CucumberTestSuite` test 
 
 By default, the tests will run using Chrome. You can run them in Firefox by overriding the `driver` system property, e.g.
 ```json
-$ mvn clean verify
+$ mvn clean verify -f pom.xml
 ```
 
 The test results will be recorded in the `target/site/serenity` directory.
